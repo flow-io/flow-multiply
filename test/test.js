@@ -26,18 +26,18 @@ describe( 'flow-multiply', function tests() {
 		expect( multStream ).to.be.a( 'function' );
 	});
 
-	it( 'should provide a method to set/get the multiplication factor', function test() {
+	it( 'should provide a method to set/get the scalar', function test() {
 		var mStream = multStream();
-		expect( mStream.factor ).to.be.a( 'function' );
+		expect( mStream.scalar ).to.be.a( 'function' );
 	});
 
-	it( 'should set the factor', function test() {
+	it( 'should set the scalar', function test() {
 		var mStream = multStream();
-		mStream.factor( 100 );
-		assert.strictEqual( mStream.factor(), 100 );
+		mStream.scalar( 100 );
+		assert.strictEqual( mStream.scalar(), 100 );
 	});
 
-	it( 'should not allow a non-numeric factor', function test() {
+	it( 'should not allow a non-numeric scalar', function test() {
 		var mStream = multStream(),
 			values = [
 				'5',
@@ -56,13 +56,13 @@ describe( 'flow-multiply', function tests() {
 
 		function badValue( value ) {
 			return function() {
-				mStream.factor( value );
+				mStream.scalar( value );
 			};
 		}
 	});
 
 	it( 'should provide a default behavior of having a multiplication factor equal to 1', function test( done ) {
-		var data, expected, mStream, FACTOR = 1;
+		var data, expected, mStream;
 
 		// Simulate some data...
 		data = [ 1,2,3,4,5 ];
@@ -72,7 +72,6 @@ describe( 'flow-multiply', function tests() {
 
 		// Create a new scalar multiplication stream:
 		mStream = multStream()
-			.factor( FACTOR )
 			.stream();
 
 		// Mock reading from the stream:
@@ -100,8 +99,8 @@ describe( 'flow-multiply', function tests() {
 		} // end FUNCTION onRead()
 	});
 
-	it( 'should scale piped data initialized with an arbitrary multiplication factor', function test( done ) {
-		var data, expected, mStream, FACTOR = 10;
+	it( 'should scale piped data initialized with an arbitrary scalar', function test( done ) {
+		var data, expected, mStream, SCALAR = 10;
 
 		// Simulate some data...
 		data = [ 1,2,3,4,5 ];
@@ -111,7 +110,7 @@ describe( 'flow-multiply', function tests() {
 
 		// Create a new scalar multiplication stream:
 		mStream = multStream()
-			.factor( FACTOR )
+			.scalar( SCALAR )
 			.stream();
 
 		// Mock reading from the stream:

@@ -21,12 +21,12 @@ var multStream = require( 'flow-multiply' );
 var mStream = multStream();
 ```
 
-### mStream.factor( [value] )
+### mStream.scalar( [value] )
 
-This method is a setter/getter. If no `value` is provided, returns the multiplication `factor`; default is `1`. To set the `factor`,
+This method is a setter/getter. If no `value` is provided, returns the multiplication `factor` (a.k.a. the `scalar`); default is `1`. To set the `scalar`,
 
 ``` javascript
-mStream.factor( 3 );
+mStream.scalar( 3 );
 ```
 
 ### mStream.stream()
@@ -44,7 +44,7 @@ Methods are chainable.
 
 ``` javascript
 multStream()
-	.factor( 3 )
+	.scalar( 3 )
 	.stream()
 	.pipe( /* writable stream */ );
 ```
@@ -67,7 +67,7 @@ var readStream = eventStream.readArray( data );
 
 // Create a new scalar multiplication stream:
 var stream = mStream()
-	.factor( 3 )
+	.scalar( 3 )
 	.stream();
 
 // Pipe the data:

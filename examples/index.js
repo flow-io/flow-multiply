@@ -12,7 +12,7 @@ var readStream = eventStream.readArray( data );
 
 // Create a new scalar multiplication stream:
 var stream = mStream()
-	.factor( 3 )
+	.scalar( 3 )
 	.stream();
 
 // Pipe the data:
