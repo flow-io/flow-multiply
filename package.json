@@ -1,6 +1,6 @@
 {
   "name": "flow-multiply",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Transform stream factory to perform scalar multiplication on streamed numeric data values.",
   "author": {
     "name": "Athan Reines",
